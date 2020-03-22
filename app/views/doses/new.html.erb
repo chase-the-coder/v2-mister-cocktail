@@ -1,0 +1,28 @@
+<html>
+  <body class="background">
+  <div>
+    <div class="custom-container d-flex justify-content-center">
+      <div class="description border p-4">
+          <h1 class="western" >Add ingredient</h1>
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <% if @dose.errors.any? %>
+            <div class="errors-container">
+              <ul>
+                <% @dose.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.input :description, class: "w-20 white" %>
+          <%= f.association :ingredient, class: "w-20 white" %>
+          <%= f.submit "Submit", class: "btn btn-primary d-block" %>
+          <%= link_to "Back to cocktails", cocktail_path(@cocktail), class: "btn btn-danger text-center m-3" %>
+          <%= link_to "Home", cocktails_path, class: "btn btn-danger text-center m-3" %>
+        <% end %>
+        <%=  %>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

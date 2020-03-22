@@ -1,0 +1,21 @@
+<div class="background">
+  <div class="custom-container d-flex justify-content-around">
+    <div>
+      <%= image_tag @cocktail.thumbnail, class: "image-thumbnail rounded" %>
+    </div>
+    <div class="description border">
+      <h1 class="western text-center"><%= @cocktail.name %></h1>
+      <h2 class="text-center white mb-4">The ingredients</h2>
+      <ul>
+        <% @cocktail.ingredients.each do |ingredient| %>
+          <h5 id="ingredient"><i class="fas fa-bullseye"></i> <%= ingredient.doses.first.description %>- <%= ingredient.name %></h5>
+        <% end %>
+        </ul>
+        <h4 class="mt-4 text-center white"><%= @cocktail.instructions %></h4>
+        <div class="d-flex justify-content-center">
+          <div><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-outline-light m-3" %></div>
+          <div> <%= link_to 'Back', cocktails_path, class: "btn btn-outline-danger mt-3" %></div>
+        </div>
+    </div>
+  </div>
+</div>
